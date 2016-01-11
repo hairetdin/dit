@@ -1,0 +1,22 @@
+﻿{% extends "admin/change_list.html" %}
+{% load i18n %}
+{% load admin_urls %}
+
+{% block object-tools-items %}
+    <li>
+        <a href="javascript:void(0);" class="changelink" onclick="window.open('{% url 'import_logon_to_ad' %}','ImportLogonwindow','height=400,width=400,location=0,top=100');">
+            Импорт подключений к AD
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0);" class="changelink" onclick="window.open('{% url 'import_user_from_ad' %}','ImportADwindow','height=200,width=400,location=0,top=100');">
+            Импорт пользователей из AD
+        </a>
+    </li>
+    <li>
+        {% url cl.opts|admin_urlname:'add' as add_url %}
+        <a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink">
+            {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
+        </a>
+    </li>
+{% endblock %}

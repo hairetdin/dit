@@ -1,0 +1,14 @@
+Атрибуты Contact        Атрибут AD
+
+Организация             Organization-Name
+Подразделение           department
+Логин                   sAMAccountName
+Имя                     displayName
+Фамилия
+Отчество
+Фото                    jpegPhoto, photo
+Телефоны                telephoneNumber, ipPhone
+Emails                  proxyAddresses
+Адрес                   streetAddress
+Должность               title
+Руководитель            manager

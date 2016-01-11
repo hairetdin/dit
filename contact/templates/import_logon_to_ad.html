@@ -1,0 +1,29 @@
+﻿
+{% if success_message %}
+    {{success_message}}
+{% else %}
+    {% if error_message %}
+        <p>При подключении шары возникли ошибки:</p>
+        {{error_message}}
+        <p>Проверьте правильность заполнения формы и повторите импорт снова</p>
+    {% endif %}
+    <p>Импорт логов подключения из файла. Пример пути к файлу \\192.168.1.4\DomenLogons\LogonsUserAD 12.2015.log</p>
+    <form action="{% url 'import_logon_to_ad' %}" method="post">
+        {% csrf_token %}
+        <table>
+            {% autoescape off %}
+            {{form.as_table}}
+            {% endautoescape %}
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Импортировать"></td>
+            </tr>
+        </table>
+    </form>
+    <p>Импорт займет некоторое время, подождите...</p>
+    <p>После завершения импорта появится сообщение</p>
+{% endif %}
+
+
+
+
